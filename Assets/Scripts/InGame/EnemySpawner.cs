@@ -22,21 +22,8 @@ public class EnemySpawner : MonoBehaviour
         SpawnEnemy(enemyID, spawnIndex);
     }
     
-    public void SpawnEnemyInRandomPosition(int enemyID)
+    public void SpawnRandomEnemy(int enemyID)
     {
-        int spawnIndex = UnityEngine.Random.Range(0, spawnPos.Count);
-        SpawnEnemy(enemyID, spawnIndex);
-    }
-    
-    public void SpawnRandomEnemy(int spawnIndex)
-    {
-        int enemyID = UnityEngine.Random.Range(0, enemyObjs.Count);
-        SpawnEnemy(enemyID, spawnIndex);
-    }
-    
-    public void SpawnEnemyByRange(int min, int max)
-    {
-        int enemyID = UnityEngine.Random.Range(Mathf.Clamp(min, 0, enemyObjs.Count), Mathf.Clamp(max, 0, enemyObjs.Count));
         int spawnIndex = UnityEngine.Random.Range(0, spawnPos.Count);
         SpawnEnemy(enemyID, spawnIndex);
     }

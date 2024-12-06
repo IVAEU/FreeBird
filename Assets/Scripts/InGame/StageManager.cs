@@ -55,7 +55,7 @@ public class StageManager : MonoBehaviour
         for (int i = 0; i < 40; ++i)
         {
             yield return SpawnStage();
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(3f);
             _stageNum++;
             stageText.text = $"Stage: {_stageNum + 1}";
             if (_stageNum == 40)
@@ -69,8 +69,9 @@ public class StageManager : MonoBehaviour
     {
         for (int i = 0; i < 5; ++i)
         {
-            enemySpawner.SpawnEnemyByRange(0, _stageNum/2 + 1);
-            yield return new WaitForSeconds(1f);
+            int maxIndex = _stageNum / 2 + 1;
+            enemySpawner.SpawnRandomEnemy(Mathf.Max(0, maxIndex - i));
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }
